@@ -1,9 +1,10 @@
 {
   "name": "Zigbee2MQTT",
-  "version": "1.36.0-1",
+  "version": "1.40.2-1",
   "slug": "zigbee2mqtt",
   "description": "Use your ZigBee devices without the vendor's bridge or gateway",
   "uart": true,
+  "udev": true,
   "url": "https://github.com/zigbee2mqtt/hassio-zigbee2mqtt/tree/master/zigbee2mqtt",
   "startup": "application",
   "services": [
@@ -46,7 +47,6 @@
     "serial": {}
   },
   "schema": {
-    "zigbee_herdsman_debug": "bool?",
     "data_path": "str",
     "socat": {
       "enabled": "bool?",
@@ -61,14 +61,16 @@
       "key": "str?",
       "cert": "str?",
       "user": "str?",
-      "password": "str?"
+      "password": "str?",
+      "base_topic": "str?"
     },
     "serial": {
       "port": "str?",
-      "adapter": "match(zstack|deconz|zigate|ezsp|ember)?",
+      "adapter": "match(zstack|deconz|zigate|ezsp|ember|zboss)?",
       "baudrate": "int?",
       "rtscts": "bool?"
-    }
+    },
+    "watchdog": "str?"
   },
   "image": "zigbee2mqtt/zigbee2mqtt-{arch}"
 }
